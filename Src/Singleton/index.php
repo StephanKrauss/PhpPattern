@@ -8,3 +8,4 @@
 
 	$demo2 = App\Singleton\Singleton::getInstance();
 	echo '$demo2: $value = ' . $demo2->value;
+
