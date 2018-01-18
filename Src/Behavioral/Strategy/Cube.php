@@ -1,5 +1,7 @@
 <?php
 
+    namespace App\Behavioral\Strategy;
+
 /**
  * Created by PhpStorm.
  * User: junade

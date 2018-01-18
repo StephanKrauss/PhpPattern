@@ -1,5 +1,7 @@
 <?php
 
+    namespace App\Behavioral\Strategy;
+
 /**
  * Created by PhpStorm.
  * User: junade
@@ -8,13 +10,33 @@
  */
 class RaiseNumber
 {
+    protected $strategy = null;
+    protected $number = null;
+
     public function __construct(Power $strategy)
     {
         $this->strategy = $strategy;
     }
 
-    public function raise(int $number)
+    /**
+     * @param null $number
+     */
+    public function setNumber($number)
     {
-        return $this->strategy->raise($number);
+        $this->number = $number;
+
+        return $this;
+    }
+
+    public function work()
+    {
+        $this->number = $this->strategy->raise($this->number);
+
+        return $this;
+    }
+
+    public function getNumber()
+    {
+        return $this->number;
     }
 }

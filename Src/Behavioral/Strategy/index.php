@@ -1,28 +1,25 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: junade
- * Date: 21/06/2016
- * Time: 16:31
+
+include_once ('../../../vendor/autoload.php');
+
+/*
+ * Veränderung eines Objektes zur Laufzeit
  */
 
-require_once('Power.php');
-require_once('Square.php');
-require_once('Cube.php');
-require_once('RaiseNumber.php');
+// Vorgabe einer Nummer
+$number = 10;
 
-if (isset($_GET['n'])) {
-    $number = $_GET['n'];
-} else {
-    $number = 0;
-}
-
+// Auswahl der Erweiterung
 if ($number < 5) {
-    $power = new Cube();
-} else {
-    $power = new Square();
+    $power = new App\Behavioral\Strategy\Cube();
+}
+else {
+    $power = new App\Behavioral\Strategy\Square();
 }
 
-$processor = new RaiseNumber($power);
+// Veränderung der Nummer
+$processor = new App\Behavioral\Strategy\RaiseNumber($power);
+$newNumber = $processor->setNumber($number)->work()->getNumber();
 
-var_dump($processor->raise($number));
+echo $newNumber;
+
