@@ -20,6 +20,7 @@
         function rewind()
         {
             var_dump(__METHOD__);
+
             $this->position = 0;
         }
 
@@ -34,12 +35,13 @@
         {
             var_dump(__METHOD__);
 
-            return $this->position;
+             return $this->position;
         }
 
         function next()
         {
             var_dump(__METHOD__);
+
             ++$this->position;
         }
 
